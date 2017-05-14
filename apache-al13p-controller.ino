@@ -12,9 +12,10 @@ void setup() {
 void loop() {
   Sensor::update();
   float temp = Sensor::get_temp();
+  int raw = Sensor::get_raw();
 
   Display::print_temp(0, temp);
-  Display::print_raw(1, Sensor::get_raw());
+  Display::print_raw(1, raw);
 
   Thermostat::update(temp);
 
