@@ -6,6 +6,7 @@ namespace Sensor {
   extern float temp;
 
   void setup();
+  void loop();
   void update();
 }
 

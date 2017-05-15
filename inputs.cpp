@@ -24,12 +24,12 @@ namespace Inputs {
 
     if (encoder_a && ! last_encoder_b && encoder_b) {
       Settings::settings.desired_temp++;
-      Menu::update();
+      Menu::temps();
     }
 
     if (encoder_b && ! last_encoder_a && encoder_a) {
       Settings::settings.desired_temp--;
-      Menu::update();
+      Menu::temps();
     }
 
     last_encoder_a = encoder_a;

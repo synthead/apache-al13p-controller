@@ -2,9 +2,7 @@
 #define MENU_H
 
 namespace Menu {
-  void loop();
-  void update();
-  void menu_temp();
+  void temps();
 }
 
 #endif

@@ -13,13 +13,10 @@ void setup() {
   Inputs::setup();
 
   Settings::read_or_set_default_settings();
+  Menu::temps();
 }
 
 void loop() {
-  Sensor::update();
-
+  Sensor::loop();
   Inputs::loop();
-  Menu::loop();
-
-  Thermostat::update(Sensor::temp);
 }

@@ -1,14 +1,21 @@
 #include "sensor.h"
+#include "menu.h"
+#include "thermostat.h"
 #include <Arduino.h>
 
 #define SENSOR_PIN A0
+#define SENSOR_UPDATE 1000
 
 // Max factory temperature 379F/193C.
 // 379F/193C is about 738 w/ 10K resistor from sensor to ground.
 
 namespace Sensor {
   int raw;
+  int last_raw;
   float temp;
+
+  unsigned long current_millis;
+  unsigned long next_update_millis = 0;
 
   // TODO: Read/write these values to/from EEPROM.
   // TODO: Allow calibration through menu.
@@ -20,8 +27,24 @@ namespace Sensor {
     pinMode(SENSOR_PIN, INPUT);
   }
 
+  void loop() {
+    current_millis = millis();
+
+    if (current_millis >= next_update_millis) {
+      update();
+      next_update_millis = current_millis + SENSOR_UPDATE;
+    }
+  }
+
   void update() {
     raw = analogRead(SENSOR_PIN);
-    temp = m * raw + b;
+
+    if (raw != last_raw) {
+      temp = m * raw + b;
+      last_raw = raw;
+
+      Thermostat::update(temp);
+      Menu::temps();
+    }
   }
 }
