@@ -3,6 +3,7 @@
 #include "display.h"
 #include "thermostat.h"
 #include "settings.h"
+#include "menu.h"
 
 void setup() {
   Sensor::setup();
@@ -14,13 +15,8 @@ void setup() {
 
 void loop() {
   Sensor::update();
-  float temp = Sensor::get_temp();
-  int raw = Sensor::get_raw();
 
-  Display::print_temp(0, temp);
-  Display::print_raw(1, raw);
+  Menu::loop();
 
-  Thermostat::update(temp);
-
-  delay(500);
+  Thermostat::update(Sensor::temp);
 }

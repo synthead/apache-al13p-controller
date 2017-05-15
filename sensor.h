@@ -2,10 +2,11 @@
 #define SENSOR_H
 
 namespace Sensor {
+  extern int raw;
+  extern float temp;
+
   void setup();
   void update();
-  float get_temp();
-  int get_raw();
 }
 
 #endif

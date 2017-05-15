@@ -8,6 +8,7 @@
 
 namespace Sensor {
   int raw;
+  float temp;
 
   // TODO: Read/write these values to/from EEPROM.
   // TODO: Allow calibration through menu.
@@ -21,13 +22,6 @@ namespace Sensor {
 
   void update() {
     raw = analogRead(SENSOR_PIN);
-  }
-
-  float get_temp() {
-    return m * raw + b;
-  }
-
-  int get_raw() {
-    return raw;
+    temp = m * raw + b;
   }
 }
