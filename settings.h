@@ -4,7 +4,7 @@
 namespace Settings {
   struct settings_struct {
     bool use_celcius;
-    float desired_temp;
+    int desired_temp;
   };
 
   extern settings_struct settings;

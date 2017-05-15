@@ -1,9 +1,9 @@
 #include "settings.h"
 #include <EEPROM.h>
 
-#define SETTINGS_CHECK "AL13P_v1"
+#define SETTINGS_CHECK "AL13P_v2"
 
-#define SETTINGS_DESIRED_TEMP 150.0
+#define SETTINGS_DESIRED_TEMP 150
 #define SETTINGS_USE_CELCIUS true
 
 namespace Settings {
