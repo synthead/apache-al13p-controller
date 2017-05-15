@@ -1,10 +1,14 @@
 #include "settings.h"
 #include <EEPROM.h>
 
-#define SETTINGS_CHECK "AL13P_v2"
+#define SETTINGS_CHECK "AL13P_v3"
 
-#define SETTINGS_DESIRED_TEMP 150
+#define SETTINGS_DESIRED_TEMP 150.0
 #define SETTINGS_USE_CELCIUS true
+
+#define SETTINGS_PID_KP 1
+#define SETTINGS_PID_KI 1
+#define SETTINGS_PID_KD 1
 
 namespace Settings {
   settings_struct settings;
@@ -32,6 +36,10 @@ namespace Settings {
   void set_default_settings() {
     settings.desired_temp = SETTINGS_DESIRED_TEMP;
     settings.use_celcius = SETTINGS_USE_CELCIUS;
+
+    settings.pid_kp = SETTINGS_PID_KP;
+    settings.pid_ki = SETTINGS_PID_KI;
+    settings.pid_kd = SETTINGS_PID_KD;
   }
 
   void read_settings() {

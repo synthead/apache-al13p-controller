@@ -3,6 +3,7 @@
 
 namespace Menu {
   void temps();
+  void loop();
 }
 
 #endif

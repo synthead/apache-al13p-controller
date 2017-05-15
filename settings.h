@@ -4,7 +4,11 @@
 namespace Settings {
   struct settings_struct {
     bool use_celcius;
-    int desired_temp;
+    double desired_temp;
+
+    double pid_kp;
+    double pid_ki;
+    double pid_kd;
   };
 
   extern settings_struct settings;

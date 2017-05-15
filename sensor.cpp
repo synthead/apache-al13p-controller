@@ -1,6 +1,4 @@
 #include "sensor.h"
-#include "menu.h"
-#include "thermostat.h"
 #include <Arduino.h>
 
 #define SENSOR_PIN A0
@@ -11,8 +9,8 @@
 
 namespace Sensor {
   int raw;
-  int last_raw;
-  float temp;
+  int last_raw = -1;
+  double temp;
 
   unsigned long current_millis;
   unsigned long next_update_millis = 0;
@@ -28,6 +26,7 @@ namespace Sensor {
   }
 
   void loop() {
+    raw = 30;
     current_millis = millis();
 
     if (current_millis >= next_update_millis) {
@@ -42,9 +41,6 @@ namespace Sensor {
     if (raw != last_raw) {
       temp = m * raw + b;
       last_raw = raw;
-
-      Thermostat::update(temp);
-      Menu::temps();
     }
   }
 }

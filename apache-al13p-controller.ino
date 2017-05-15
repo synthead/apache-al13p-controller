@@ -11,12 +11,15 @@ void setup() {
   Relays::setup();
   Display::setup();
   Inputs::setup();
+  Thermostat::setup();
 
   Settings::read_or_set_default_settings();
-  Menu::temps();
+  Sensor::update();
 }
 
 void loop() {
   Sensor::loop();
   Inputs::loop();
+  Thermostat::loop();
+  Menu::loop();
 }

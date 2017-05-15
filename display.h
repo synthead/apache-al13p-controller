@@ -3,9 +3,10 @@
 
 namespace Display {
   void setup();
-  void print_temp(int, float);
-  void print_raw(int, int);
+  void print_temp();
+  void print_raw();
   void print_row(int, char*);
+  void print_symbols();
 }
 
 #endif

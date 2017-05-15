@@ -3,7 +3,7 @@
 
 namespace Sensor {
   extern int raw;
-  extern float temp;
+  extern double temp;
 
   void setup();
   void loop();
