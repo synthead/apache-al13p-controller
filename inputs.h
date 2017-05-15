@@ -4,6 +4,7 @@
 namespace Inputs {
   void setup();
   void loop();
+  void queue_write();
 }
 
 #endif
