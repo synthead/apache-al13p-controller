@@ -18,7 +18,7 @@ namespace Menu {
   void loop() {
     current_millis = millis();
 
-    if (millis() > next_update_millis) {
+    if (current_millis > next_update_millis) {
       menu_temp();
       next_update_millis = current_millis + MENU_TEMP_UPDATE;
     }
