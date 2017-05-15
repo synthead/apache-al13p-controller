@@ -4,13 +4,11 @@
 #include "settings.h"
 
 namespace Thermostat {
-  // TODO: Allow user to set this value.
+  bool heat_on = false;
+
   // TODO: Add PID support.
   void update(float temp) {
-    if (temp >= Settings::settings.desired_temp) {
-      Relays::heat(false);
-    } else {
-      Relays::heat(true);
-    }
+    heat_on = temp < Settings::settings.desired_temp;
+    Relays::heat(heat_on);
   }
 }

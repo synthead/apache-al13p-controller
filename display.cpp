@@ -1,6 +1,8 @@
 #include "display.h"
+#include "thermostat.h"
 #include "settings.h"
 #include <LiquidCrystal.h>
+#include <Arduino.h>
 
 #define DISPLAY_RS 2
 #define DISPLAY_E  3
@@ -20,8 +22,20 @@ namespace Display {
     DISPLAY_D7
   );
 
+  byte heat_char[8] = {
+    0b01010,
+    0b10100,
+    0b10100,
+    0b01010,
+    0b00101,
+    0b00101,
+    0b01010,
+    0b00000
+  };
+
   void setup() {
     lcd.begin(16, 2);
+    lcd.createChar(0, heat_char);
   }
 
   void print_temp(int row, float temp) {
@@ -44,6 +58,11 @@ namespace Display {
     );
 
     print_row(row, text);
+
+    if (Thermostat::heat_on) {
+      lcd.setCursor(15, row);
+      lcd.write((uint8_t)0);
+    }
   }
 
   void print_raw(int row, int raw) {
