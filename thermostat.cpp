@@ -1,15 +1,13 @@
 #include "thermostat.h"
 #include "sensor.h"
 #include "relays.h"
+#include "settings.h"
 
 namespace Thermostat {
   // TODO: Allow user to set this value.
-  // TODO: Read/write this value to/from EEPROM.
   // TODO: Add PID support.
-  float desired_temp = 150.0;
-
   void update(float temp) {
-    if (temp >= 150) {
+    if (temp >= Settings::settings.desired_temp) {
       Relays::heat(false);
     } else {
       Relays::heat(true);

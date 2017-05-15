@@ -1,4 +1,5 @@
 #include "display.h"
+#include "settings.h"
 #include <LiquidCrystal.h>
 
 #define DISPLAY_RS 2
@@ -10,9 +11,6 @@
 
 namespace Display {
   // TODO: Allow user to switch between C and F.
-  // TODO: Read/write this value to/from EEPROM.
-  bool celcius = true;
-
   LiquidCrystal lcd(
     DISPLAY_RS,
     DISPLAY_E,
@@ -29,7 +27,7 @@ namespace Display {
   void print_temp(int row, float temp) {
     char text[17];
 
-    if (! celcius) {
+    if (! Settings::settings.use_celcius) {
       temp = temp * (9 / 5) + 32;
     }
 
@@ -41,7 +39,7 @@ namespace Display {
       "Temp: %d.%d \xdf%s",
       temp_whole,
       temp_decimal,
-      celcius ? "C" : "F"
+      Settings::settings.use_celcius ? "C" : "F"
     );
 
     print_row(row, text);

@@ -2,11 +2,14 @@
 #include "relays.h"
 #include "display.h"
 #include "thermostat.h"
+#include "settings.h"
 
 void setup() {
   Sensor::setup();
   Relays::setup();
   Display::setup();
+
+  Settings::read_or_set_default_settings();
 }
 
 void loop() {
