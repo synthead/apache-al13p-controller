@@ -36,9 +36,10 @@ namespace Display {
 
     sprintf(
       text,
-      "Temp: %d.%d \xdf%s",
+      "%d.%d / %d \xdf%s",
       temp_whole,
       temp_decimal,
+      Settings::settings.desired_temp,
       Settings::settings.use_celcius ? "C" : "F"
     );
 
