@@ -22,3 +22,10 @@ One of the more popular laminators for toner transfers is the Apache AL13P, whic
 * It has a control panel as its own PCB with a display, inputs, and a controller that's easily replaced
 
 With this controller upgrade, you'll be able to increase the heat to an ideal temperature for one-pass toner transfers with the perks of much nicer controls, better heat control, and hopefully, decent community support (that's you!).
+
+## Cool prototype pictures
+
+Pics or it didn't happen!  Look at it go!
+
+![image](https://cloud.githubusercontent.com/assets/820984/26085516/d38412d4-3999-11e7-8a63-e2741ed75152.png)
+![image](https://cloud.githubusercontent.com/assets/820984/26085528/f501f3ae-3999-11e7-8a9c-320269828c03.png)
