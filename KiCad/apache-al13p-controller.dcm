@@ -1,0 +1,21 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 7805_2
+D Linear Regulator +5V
+K POWER REGUL
+F regulator\lm78xx.pdf
+$ENDCMP
+#
+$CMP BC337
+D 45V Vce, 0.8A Ic, NPN, SOT-23
+K BC817 BC337 Equivalent
+F http://www.fairchildsemi.com/ds/BC/BC817.pdf
+$ENDCMP
+#
+$CMP BC818-40
+D 25V Vce, 0.8A Ic, NPN, SOT-23
+K BC818 BC337 Equivalent
+F http://www.fairchildsemi.com/ds/BC/BC817.pdf
+$ENDCMP
+#
+#End Doc Library
